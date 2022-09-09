@@ -5,23 +5,29 @@ using UnityEngine;
 
 public class Ejercicio04 : MonoBehaviour
 {
-    string BuscarEnemigos(string[] enemigos)
+    /*---- Busca otra alternativa ----*/
+
+    /*Dato:Queremos saber si existe el nombre de un enemigo dentro de una lista.
+      Podriamos mejorarlo usando algun método de Linq.
+    */
+
+    public List<string> enemigos = new List<string>() { "Orco","Araña","Golem","Goblin"};
+    string enemigo = "Araña";
+
+
+
+    string EncontrandoEnemigo()
     {
         for (int i = 0; i < enemigos.Length; i++)
         {
             if (enemigos[i].Equals("Araña"))
             {
-                return "Araña";
-            }
-            if (enemigos[i].Equals("Lobo"))
-            {
-                return "Lobo";
-            }
-            if (enemigos[i].Equals("Orco"))
-            {
-                return "Orco";
+                return "Se Encontro Araña";
             }
         }
-        return String.Empty;
+
+        return "No se encontró";
+
+
     }
 }

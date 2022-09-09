@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Ejercicio02 : MonoBehaviour
 {
+    /*---- Mejorá el código  ----*/
+
+    //Dato:no se que es,pero siento que algo no esta bien.
+
+
     int fuerza = 100;
     int agilidad = 50;
 
@@ -12,18 +17,18 @@ public class Ejercicio02 : MonoBehaviour
     {
         
     }
-
+    
     private void Update()
     {
-        
+
     }
 
-    private void AtaqueEspecial()
+    private void EjecutarAtaqueEspecial()
     {
         if ((fuerza * 2) / 5 > -1 && (agilidad / 2 > 20))
 
         {
-            Debug.Log("Ataque especial");
+            Debug.Log("Ataque especial ejecutado");
         }
     }
 }
