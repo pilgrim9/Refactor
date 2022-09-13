@@ -1,57 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ejercicio03 : MonoBehaviour
 {
     /*---- Ordena el C�dgo  ----*/
 
-    public float _Speed;
-    bool esta_Saltando;
-    public float Z;
-    private Rigidbody2D fisicas;
-    public _Speed2;
+    public float movementSpeed;
+    public float jumpForce;
+    public float rotationSpeed = 10;
 
-    private void Start()
+    bool isJumping;
+    Rigidbody2D _rigidbody2D;
+
+    void Start()
     {
-        fisicas = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+    void FixedUpdate()
     {
-        Movimiento();
+        Movement();
     }
 
-    public void Movimiento()
+    void Movement()
     {
-        //Movimiento del jugador - Der
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            float movimiento_x = Input.GetAxis("Horizontal");
-            fisicas.velocity = new Vector2(x, 0);
-        }
-        //Movimiento del jugador - Izquierda
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            float movimiento_x = Input.GetAxis("Horizontal");
-            fisicas.velocity = new Vector2(x, 0);
-        }
-        //Rotacion del jugador
+        float yMovement = _rigidbody2D.velocity.y;
+        float xMovement = Input.GetAxis("Horizontal");
+        _rigidbody2D.velocity = new Vector2(xMovement * movementSpeed, yMovement) ;
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Z += Time.deltaTime * 10;
-            transform.rotation = Quaternion.Euler(0, 0, Z);
-
+            transform.rotation = Quaternion.Euler(0, 0, Time.deltaTime * rotationSpeed);
         }
-        //Salto del jugador 
-        if (Input.GetButton("Jump") && !esta_Saltando)
+        if (Input.GetButton("Jump") && !isJumping)
         {
-            //Le aplico la fuerza de salto
-            rb2d.AddForce(Vector2.up * _Speed2;
-            Debug.Log("Estoy saltando Wiiii");
-            //Digo que est� saltando (para que no pueda volver a saltar)
+            _rigidbody2D.AddForce(Vector2.up * jumpForce);
             isJumping = true;
         }
     }
-
-    //....
 }

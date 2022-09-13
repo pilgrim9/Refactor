@@ -1,33 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ejercicio02 : MonoBehaviour
 {
-    /*---- Mejor� el c�digo  ----*/
-
-    //Dato:no se que es,pero siento que algo no esta bien.
-
-
-    int fuerza = 100;
-    int agilidad = 50;
-
-        @@ -12,18 +17,18 @@ private void Start()
-    {
-
-    }
+    /*---- Mejorar el c�digo  ----*/
     
-    private void Update()
+    int strength = 100;
+    int agility = 50;
+    public float strengthMultiplier = 2 / 5f;
+    public float strengthThreshold = -1;
+    public float agilityMultiplier = 1 / 2f;
+    public float agilityThreshold = 20;
+    
+    private void ExecuteSpecialAttack()
     {
-
-    }
-
-    private void EjecutarAtaqueEspecial()
-    {
-        if ((fuerza * 2) / 5 > -1 && (agilidad / 2 > 20))
-
+        if (strength * strengthMultiplier > strengthThreshold && agility * agilityMultiplier > agilityThreshold)
         {
             Debug.Log("Ataque especial ejecutado");
         }
     }
+    
 }
