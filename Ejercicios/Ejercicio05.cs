@@ -1,24 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ejercicio05 : MonoBehaviour
 {
     [Range(1, 20)]
-    int Probabilidad_Critico;
+    [SerializeField]
+    int critChance;
 
-    public void DañoCritico()
+    [Range(1, 20)]
+    [SerializeField]
+    int critThreshold = 15;
+
+    public bool CalculateCrit()
     {
-        int Dado = Random.Range(0, Probabilidad_Critico);
-
-        if (Dado > 15)
-        {
-            Debug.Log("Golpe Critico");
-        }
-        else
-        {
-            Debug.Log("Golpe Normal");
-        }
-
+        int result = Random.Range(0, critChance);
+        return result >= critThreshold;
     }
 }

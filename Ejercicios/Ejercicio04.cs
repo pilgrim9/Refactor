@@ -1,25 +1,21 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Ejercicio04 : MonoBehaviour
 {
+    string[] tiposDeEnemigo = new string[] {
+        "AraÃ±a",
+        "Lobo",
+        "Orco"
+    };
     string BuscarEnemigos(string[] enemigos)
     {
         for (int i = 0; i < enemigos.Length; i++)
         {
-            if (enemigos[i].Equals("Araña"))
+            if (this.tiposDeEnemigo.Contains<string>(enemigos[i]))
             {
-                return "Araña";
-            }
-            if (enemigos[i].Equals("Lobo"))
-            {
-                return "Lobo";
-            }
-            if (enemigos[i].Equals("Orco"))
-            {
-                return "Orco";
+                return enemigos[i];
             }
         }
         return String.Empty;

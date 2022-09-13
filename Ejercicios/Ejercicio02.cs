@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ejercicio02 : MonoBehaviour
@@ -7,21 +5,17 @@ public class Ejercicio02 : MonoBehaviour
     int fuerza = 100;
     int agilidad = 50;
 
+    int fuerzaMinima = -1;
+    int agilidadMinima = 20;
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
-
+    float multiplicadorDeFuerza = 2 / 5f;
+    float multiplicadorDeAgilidad = 1 / 2f; 
     private void AtaqueEspecial()
     {
-        if ((fuerza * 2) / 5 > -1 && (agilidad / 2 > 20))
-
+        bool fuerzaSuficiente = fuerza * multiplicadorDeFuerza> fuerzaMinima;
+        bool agilidadSuficiente = agilidad * multiplicadorDeAgilidad > agilidadMinima;
+        
+        if (fuerzaSuficiente && agilidadSuficiente)
         {
             Debug.Log("Ataque especial");
         }

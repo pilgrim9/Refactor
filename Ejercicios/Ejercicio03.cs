@@ -1,22 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ejercicio03 : MonoBehaviour
 {
-    int resistencia;
-    int vida;
+    int endurance;
+    int life;
 
-    void RacibirDaño(int daño)
+    int minEndurance = 5;
+    int damageReduction = 2;
+
+    void TakeDamage(int damage)
     {
-     
-        if (resistencia > 5)
+        if (endurance > minEndurance)
         {
-            daño -= 2;
-
+            damage -= damageReduction;
         }
-
-        vida -= daño;
-        
+        life -= damage;
     }
 }
